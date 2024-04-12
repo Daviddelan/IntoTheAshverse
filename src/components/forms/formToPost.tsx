@@ -53,7 +53,7 @@ async function onSubmit(values: z.infer<typeof ValidationForPosts>) {
         toast({title : "Did you try to post a picture?"})
     }
     toast({title : "Picture posted successfully"})
-    navigate('/')
+    navigate('/home')
 }
   return (
     <Form {...form}>

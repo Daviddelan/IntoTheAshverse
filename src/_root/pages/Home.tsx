@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Models } from 'appwrite';
-import  UserCard  from '@/components/shared/usercard';
 import Loadingside from '@/components/shared/Loadingside';
 import PostCard from '@/components/shared/Postcard';
 
@@ -11,10 +10,9 @@ const Home = () => {
   const [isPostLoading, setIsPostLoading] = useState<boolean>(true);
   const [isErrorPosts, setIsErrorPosts] = useState<boolean>(false);
 
-  const [creators] = useState<Models.Document[]>([]);
   const [isUserLoading, setIsUserLoading] = useState<boolean>(true);
   const [isErrorCreators, setIsErrorCreators] = useState<boolean>(false);
-
+  console.log(isUserLoading);
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -63,7 +61,7 @@ const Home = () => {
     return (
       <div className="flex flex-1">
         <div className="home-container">
-          <h2 className="h3-bold md:h2-bold text-left w-full">Home Feed</h2>
+          <h2 className="h3-bold md:h2-bold text-left w-full mt-6">Home Feed</h2>
           {isPostLoading && !posts ? (
             <Loadingside />
           ) : (
@@ -87,7 +85,7 @@ const Home = () => {
     <div className="flex">
       <div className="home-container">
         <div className="home-posts">
-          <h2 className="h3-bold md:h2-bold text-left w-full">Home Feed</h2>
+          <h2 className="h3-bold md:h2-bold text-left w-full mt-6">Home Feed</h2>
           {isPostLoading && !posts ? (
             <Loadingside />
           ) : (
@@ -100,21 +98,6 @@ const Home = () => {
             </ul>
           )}
         </div>
-      </div>
-
-      <div className="home-creators">
-        <h3 className="h3-bold text-light-1">Top Creators</h3>
-        {isUserLoading && !creators ? (
-          <Loadingside />
-        ) : (
-          <ul className="grid 2xl:grid-cols-2 gap-6">
-            {creators.map((creator) => (
-              <li key={creator?.$id}>
-                <UserCard user={creator} />
-              </li>
-            ))}
-          </ul>
-        )}
       </div>
     </div>
   );

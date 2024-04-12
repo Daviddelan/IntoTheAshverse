@@ -19,12 +19,12 @@ const App = () => {
                 <Route element={<AuthLayout />}>
                     <Route path= "/signup" element={<Signup />}/>
 
-                    <Route path= "/signin" element={<Signin />}/>
+                    <Route index element={<Signin />}/>
                 </Route>
-
+ 
                 {/* The private routing only for specific people*/}
                 <Route element={<RootLayout />}>
-                    <Route index element={<Home/>}/>
+                    <Route path="/home" element={<Home/>}/>
                     <Route path="/explore" element={<Explore />} />
                     <Route path="/saved" element={<Saved />} />
                     <Route path="/all-users" element={<AllUsers />} />
