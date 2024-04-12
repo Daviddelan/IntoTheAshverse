@@ -70,7 +70,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       cookieFallback === null ||
       cookieFallback === undefined
     ) {
-      window.location.href = "/sign-in"; // Navigate to sign-in page
+      window.location.href = "/signin"; 
     }
 
     checkAuthUser();
