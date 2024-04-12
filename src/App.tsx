@@ -17,9 +17,9 @@ const App = () => {
             <Routes>
                 {/* The public routing for all people*/}
                 <Route element={<AuthLayout />}>
-                    <Route path= "/signup" element={<Signup />}/>
+                    <Route path= "/signin" element={<Signin />}/>
 
-                    <Route index element={<Signin />}/>
+                    <Route index element={<Signup />}/>
                 </Route>
  
                 {/* The private routing only for specific people*/}
