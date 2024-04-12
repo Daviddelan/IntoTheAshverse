@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { IUser } from "@/types";
 import { getCurrentUser } from "@/lib/appwrite/api"; 
 
