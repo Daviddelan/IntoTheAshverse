@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { useEffect, createContext, useContext, useState } from "react";
 import { IUser } from "@/types";
 import { getCurrentUser } from "@/lib/appwrite/api"; 
 
@@ -63,18 +63,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  // useEffect(() => {
-  //   const cookieFallback = localStorage.getItem("cookieFallback");
-  //   if (
-  //     cookieFallback === "[]" ||
-  //     cookieFallback === null ||
-  //     cookieFallback === undefined
-  //   ) {
-  //     window.location.href = "/signin"; 
-  //   }
+  useEffect(() => {
+    const cookieFallback = localStorage.getItem("cookieFallback");
+    if (
+      cookieFallback === "[]" ||
+      cookieFallback === null ||
+      cookieFallback === undefined
+    ) {
+      window.location.href = "/signin"; 
+    }
 
-  //   checkAuthUser();
-  // }, []);
+    checkAuthUser();
+  }, []);
 
   const value = {
     user,
