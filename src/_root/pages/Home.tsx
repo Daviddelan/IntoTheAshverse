@@ -17,6 +17,7 @@ const Home = () => {
     const fetchPosts = async () => {
       try {
         const response = await fetchRecentPosts();
+        console.log(response);
         setPosts(response.documents || []);
       } catch (error) {
         setIsErrorPosts(true);
